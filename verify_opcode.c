@@ -13,7 +13,7 @@ void opcode_selector(stack_t **stack, unsigned int line_number)
 	int target = 0, ite = 0;
 
 	instruction_t op[] = {{"push", push}, {"pint", pint}, {"pall", pall},
-	{"pop", pop}, {"nop", nop}, {"sub", sub}, {"div", divi},
+	{"pop", pop}, {"swap", swap}, {"nop", nop}, {"sub", sub}, {"div", divi},
 	{"mul", mul}, {"mod", mod},
 	{NULL, NULL}
 	};
