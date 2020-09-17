@@ -12,8 +12,10 @@ void opcode_selector(stack_t **stack, unsigned int line_number)
 	char *token = strdup(free_Mmry.line);
 	int target = 0, ite = 0;
 
-	instruction_t op[] = {{"push", push}, {"pall", pall}, {"nop", nop},
-	{"sub", sub}, {"div", divi}, {"mul", mul}, {"mod", mod}, {NULL, NULL}};
+	instruction_t op[] = {{"push", push}, {"pint", pint}, {"pall", pall},
+	{"nop", nop}, {"sub", sub}, {"div", divi}, {"mul", mul}, {"mod", mod},
+	{NULL, NULL}
+	};
 	free_Mmry.tmp = token;
 	token = strtok(token, DELIMITERS);
 	if (token == NULL)

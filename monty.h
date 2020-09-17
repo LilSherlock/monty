@@ -47,6 +47,7 @@ extern carry free_Mmry;
 void opcode_selector(stack_t **stack, unsigned int line_number);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
 void kai(stack_t **stack);
 void jutsu_liberacion(void);
 void nop(stack_t **stack, unsigned int line_number);
