@@ -39,5 +39,5 @@ int main(int argc, char **argv)
 	free(free_Mmry.line);
 	kai(&stack);
 	fclose(free_Mmry.fp);
-	return (EXIT_SUCCESS);
+	return (0);
 }
