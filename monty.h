@@ -8,7 +8,7 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-#define DELIMITERS "\n\t\r "
+#define DELIMITERS " \t\n"
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -38,10 +38,20 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-
-void verify(char *line, unsigned int line_number, stack_t **stack);
-int opcode_selector(char *token, stack_t **stack, unsigned int line_number);
-
-void push(unsigned int line_number, stack_t **stack, char *token_value);
+typedef struct ez
+{
+	char *line, *tmp;
+	FILE *fp;
+} carry;
+extern carry free_Mmry;
+void opcode_selector(stack_t **stack, unsigned int line_number);
+void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
+void kai(stack_t **stack);
+void jutsu_liberacion(void);
+void nop(stack_t **stack, unsigned int line_number);
+void sub(stack_t **stack, unsigned int line_number);
+void divi(stack_t **stack, unsigned int line_number);
+void mul(stack_t **stack, unsigned int line_number);
+void mod(stack_t **stack, unsigned int line_number);
 #endif

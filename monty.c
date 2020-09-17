@@ -1,35 +1,43 @@
 #include "monty.h"
 
+carry free_Mmry;
+/**
+ * main - select an option
+ *
+ * @argc: stack
+ * @argv: number of lines
+ *
+ * Return: 0 or 1
+*/
 int main(int argc, char **argv)
 {
 	char *filename = argv[1];
-	char *line = NULL, *opcode = NULL, *value = NULL;
 	size_t len = 0;
 	ssize_t line_size;
 	stack_t *stack = NULL;
 	unsigned int line_number = 0;
-	FILE *fp;
 
-	fp = fopen(filename, "r");
+	(void)argc;
+	free_Mmry.fp = fopen(filename, "r");
 	if (!filename)
 	{
-		fprintf(stderr, "USAGE: mchar *line_numberonty file\n");
-		return (EXIT_FAILURE);
+		fprintf(stderr, "USAGE: monty file\n");
+		exit(EXIT_FAILURE);
 	}
-	if (!fp)
+	if (!free_Mmry.fp)
 	{
-		fprintf(stderr, "Error: Can't open file %s\n", filename);
-		return (EXIT_FAILURE);
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);
 	}
-	line_size = getline(&line, &len, fp);
+	line_size = getline(&free_Mmry.line, &len, free_Mmry.fp);
 	while (line_size >= 0)
 	{
 		line_number++;
-		verify(line, line_number, &stack);
-		line_size = getline(&line, &len, fp);
+		opcode_selector(&stack, line_number);
+		line_size = getline(&free_Mmry.line, &len, free_Mmry.fp);
 	}
-	free(line);
-	line = NULL;
-	fclose(fp);
+	free(free_Mmry.line);
+	kai(&stack);
+	fclose(free_Mmry.fp);
 	return (EXIT_SUCCESS);
 }
