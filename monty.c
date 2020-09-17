@@ -12,8 +12,7 @@ carry free_Mmry;
 int main(int argc, char **argv)
 {
 	char *filename = argv[1];
-	size_t len = 0;
-	ssize_t line_size = 300;
+	size_t line_size = 300;
 	stack_t *stack = NULL;
 	unsigned int line_number = 0;
 
@@ -35,12 +34,11 @@ int main(int argc, char **argv)
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	line_size = getline(&free_Mmry.line, &len, free_Mmry.fp);
-	while (line_size >= 0)
+	while (getline(&free_Mmry.line, &line_size, free_Mmry.fp)
+	!= -1)
 	{
 		line_number++;
 		opcode_selector(&stack, line_number);
-		line_size = getline(&free_Mmry.line, &len, free_Mmry.fp);
 	}
 	free(free_Mmry.line);
 	kai(&stack);
