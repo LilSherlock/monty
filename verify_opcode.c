@@ -14,7 +14,7 @@ void opcode_selector(stack_t **stack, unsigned int line_number)
 
 	instruction_t op[] = {{"push", push}, {"pint", pint}, {"pall", pall},
 	{"pop", pop}, {"swap", swap}, {"nop", nop}, {"sub", sub}, {"div", divi},
-	{"mul", mul}, {"mod", mod},
+	{"mul", mul}, {"mod", mod}, {"add", add},
 	{NULL, NULL}
 	};
 	free_Mmry.tmp = token;
