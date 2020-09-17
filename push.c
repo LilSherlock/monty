@@ -42,8 +42,11 @@ void push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	new->n = atoi(token_v);
-	new->next = (*stack);
 	new->prev = NULL;
-	if ((*stack) != NULL)
+	new->next = NULL;
+	if (*stack != NULL)
+	{
+		new->next = *stack;
 		(*stack)->prev = new;
-	(*stack) = new; }
+	}
+	*stack = new; }

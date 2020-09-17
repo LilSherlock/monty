@@ -13,10 +13,16 @@ int main(int argc, char **argv)
 {
 	char *filename = argv[1];
 	size_t len = 0;
-	ssize_t line_size;
+	ssize_t line_size = 300;
 	stack_t *stack = NULL;
 	unsigned int line_number = 0;
 
+	free_Mmry.line = malloc(line_size * sizeof(char));
+	if (free_Mmry.line == NULL)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
 	(void)argc;
 	free_Mmry.fp = fopen(filename, "r");
 	if (!filename)
