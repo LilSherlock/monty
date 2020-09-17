@@ -17,11 +17,9 @@ int main(int argc, char **argv)
 	stack_t *stack = NULL;
 	unsigned int line_number = 0;
 
-	(void)argc;
 	free_Mmry.fp = fopen(filename, "r");
-	if (!filename)
+	if (argc != 2)
 	{
-		free(free_Mmry.line);
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
