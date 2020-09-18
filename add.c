@@ -1,8 +1,11 @@
 #include "monty.h"
 /**
  * add - add the two last elements
+ *
  * @stack: stack
  * @line_number: - number of line
+ *
+ * Return: Nothing
  */
 void add(stack_t **stack, unsigned int line_number)
 {
