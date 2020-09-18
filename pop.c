@@ -1,8 +1,11 @@
 #include "monty.h"
 /**
  * pop - remove top value
+ *
  * @stack: stack_structure
  * @line_number: number of line
+ *
+ * Return: Nothing
  */
 void pop(stack_t **stack, unsigned int line_number)
 {
