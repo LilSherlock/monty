@@ -66,5 +66,9 @@ void mul(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
 void pchar(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
+void rotl(stack_t **stack, unsigned int line_number);
 size_t stack_length(stack_t **stack);
+stack_t *add_dnodeint_end(stack_t **head, const int n);
+int delete_dnodeint_at_index(stack_t **head, unsigned int index);
+int deleteNode(stack_t **head, stack_t *vector);
 #endif
